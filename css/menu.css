@@ -1,0 +1,49 @@
+h1 { color: #111; font-family: 'Helvetica Neue', sans-serif; font-size: 275px; font-weight: bold; letter-spacing: -1px; line-height: 1; text-align: center; }
+
+h2 { color: #111; font-family: 'Open Sans', sans-serif; font-size: 30px; font-weight: 300; line-height: 32px; margin: 0 0 72px; text-align: center; }
+
+p { color: #685206; font-family: 'Helvetica Neue', 
+sans-serif; font-size: 14px; line-height: 24px; 
+margin: 0 0 24px; 
+text-justify: inter-word;  align:center;}
+
+
+
+    .messages{
+        float: left;
+        font-family: sans-serif;
+        display: none;
+    }
+    .info{
+        padding: 10px;
+        border-radius: 10px;
+        background: orange;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+    }
+    .before{
+        padding: 10px;
+        border-radius: 10px;
+        background: blue;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+    }
+    .success{
+        padding: 10px;
+        border-radius: 10px;
+        background: green;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+    }
+    .error{
+        padding: 10px;
+        border-radius: 10px;
+        background: red;
+        color: #fff;
+        font-size: 18px;
+        text-align: center;
+    }
+</style>
