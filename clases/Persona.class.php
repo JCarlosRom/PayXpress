@@ -12,7 +12,7 @@
 
 			$Contraseña_crypt=md5($Contraseña);
 
-			$Consulta= "Select * from usuarios where Contraseña='$Contraseña_crypt' && Usuario='$Usuario'";
+			$Consulta= "Select * from empleado where Contraseña='$Contraseña_crypt' && Usuario='$Usuario'";
 
 			$respuesta= $this->query_assoc($Consulta);
 
@@ -28,21 +28,24 @@
 		public function Registro ($info){
 
 			$Nombre=$info["Usuario"];
+			$Nombres=$info["Nombres"];
 			$Apellido=$info["Apellido"];
+			$Apellido2=$info["Apellido2"];
 			$Telefono=$info["Telefono"];
-			$Direccion=$info["Direccion"];
+			$Correo=$info["Correo"];
 			$Contraseña=md5($info["Contraseña"]);
+			$Sucursal=$info["Sucursal"];
 
-			$Consulta="insert into usuarios (Usuario,Contraseña,Apellido,Telefono,Direccion)
-			values('$Nombre','$Contraseña','$Apellido','$Telefono','$Direccion')";
+			$Consulta="insert into empleado (Usuario,Nombres, Apellido, Apellido2, Telefono, Correo,Contraseña,Sucursal)
+			values('$Nombre','$Nombres','$Apellido','$Apellido2','$Telefono','$Correo', '$Contraseña','$Sucursal')";
 
-			echo $Consulta;
+			
 			return $this->query($Consulta);
 		}
 
 
 		public function Get_Users(){
-			$Consulta="Select Usuario from usuarios";
+			$Consulta="Select Usuario from empleado";
 
 			return $this->query_assoc($Consulta);
 		}

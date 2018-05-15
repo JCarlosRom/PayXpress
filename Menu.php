@@ -10,7 +10,7 @@ if(!isset($_SESSION["user"])){
 }
 if ($_SESSION["user"]=="Administrador") {
 
-	$Button_registrar="<button type='button' class='btn btn-primary' id='Registrar'>Registrar usuario <span class='glyphicon glyphicon-user'></button>";
+	$Button_registrar="<li><a id='Registrar'> <span class='glyphicon glyphicon-user'></span> Registrar nuevo usuario</a></li>";
 }else {
 	$Button_registrar="";
 }
@@ -69,8 +69,7 @@ if ($_SESSION["user"]=="Administrador") {
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li>
-          <li><a href="#">Link</a></li>
+          <li><a href="#">Otro</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catalogos <span class="caret"></span></a>
             <ul class="dropdown-menu">
@@ -84,15 +83,17 @@ if ($_SESSION["user"]=="Administrador") {
         </ul>
 
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Link</a></li>
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><?php echo $_SESSION["user"] ?> <span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li><a id="Registrar"> <span class='glyphicon glyphicon-user'></span> Registrar nuevo usuario</a></li>
+              <?php
+                echo $Button_registrar;
+               ?>
+
+              <li><a href="#">Ayuda</a></li>
+                <li role="separator" class="divider"></li>
               <li><a href="php/logout.php"><span class="glyphicon glyphicon-off"></span> Cerrar sesion</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
+
             </ul>
           </li>
         </ul>
@@ -110,21 +111,30 @@ if ($_SESSION["user"]=="Administrador") {
       <button type="button" class="btn btn-info btn-lg centerblock ButtonSize" id="Venta_nueva"  ><span class="glyphicon glyphicon-plus"></span>  Venta nueva</button>
     </div>
 
-
-<div class="col-md-5">
+<di> </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br><br><br><br><br>
+  <br><br><br><br><br>
+  <br><br>
+<div class="col-md-2">
 	<div class="centerblock">
-		<div style="text-align:center;padding:1em 0;"> <h4><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/es/city/4013516"><span style="color:gray;">Hora actual en</span><br />Colima, México</a></h4> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=small&timezone=America%2FMexico_City" width="100%" height="90" frameborder="0" seamless></iframe> </div>
+		<div style="text-align:center;padding:1em 0;"> <h4><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/es/city/4013516"><iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=es&size=small&timezone=America%2FMexico_City" width="100%" height="90" frameborder="0" seamless></iframe> </div>
 
 	</div>
 </div>
 
-<br><br>
+
+
+<br>
 
 
 
-	<div class="col-md-7">
+	<div class="col-md-10">
 		<div class="centerblock">
-			<iframe class=centerblock src="https://mconvert.net/get-exchange-rates-widget?base=usd&amount=1&lang=en&curr=mxn&theme=blue&type=1&font=1&ssl=1" width="300" height="124" frameborder="0" scrolling="no"></iframe>
+			<iframe class=centerblock src="https://mconvert.net/get-exchange-rates-widget?base=usd&amount=1&lang=en&curr=mxn&theme=blue&type=1&font=1&ssl=1" width="200" height="80" frameborder="0" scrolling="no"></iframe>
 			<div style="width:300px;font-size:12px;font-family:arial;text-align:right;"><a href="https://mconvert.net/" style="text-decoration:none;color:#999;">Currency converter</a></div>
 
 		</div>

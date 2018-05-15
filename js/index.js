@@ -84,14 +84,17 @@ $(document).on("click","#Registrar",function(e){
 
 $(document).on("click","#Registrar_usuario",function(e){
   var Usuario= $("#Nombre").val();
+  var Nombres= $("#Nombres").val();
   var Apellido=$("#Apellido").val();
+  var Apellido2=$("#Apellido2").val();
   var Telefono=$("#Telefono").val();
-  var Direccion=$("#Direccion").val();
+  var Correo=$("#Correo").val();
   var Contraseña=$("#Contraseña").val();
+  var Sucursal=$("#Sucursal").val();
 
   var Nuevo_registro ={
-    Usuario:Usuario, Apellido:Apellido, Telefono: Telefono,
-    Direccion:Direccion, Contraseña:Contraseña
+    Usuario:Usuario, Nombres:Nombres, Apellido:Apellido, Apellido2:Apellido2, Telefono: Telefono,
+    Correo:Correo, Contraseña:Contraseña, Sucursal:Sucursal
   }
 
   $.ajax({
@@ -105,9 +108,9 @@ $(document).on("click","#Registrar_usuario",function(e){
       toast1("El registro no se pudo llevar a cabo de forma correcta",error,8000,"error");
     },
     success:function(data){
-      console.log(data);
-            if(data == "true"){
-              toast1("El registro se pudo llevar a cabo de forma correcta",success,8000,"success");
+
+            if(data === true){
+              toast1("El registro se pudo llevar a cabo de forma correcta","Agregado correctamente",8000,"success");
 
             }else {
                 toast1("error", "Registro Incorrecto",8000,"error");

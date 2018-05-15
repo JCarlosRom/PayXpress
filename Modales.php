@@ -303,7 +303,7 @@
     </div>
     <div class="modal-footer">
       <button type="button" name="button" class="btn btn-default" data-dismiss="modal">Guardar y volver</button>
-      <button type="button" name="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
+      <button type="button" name="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
     </div>
   </div>
 
@@ -397,8 +397,7 @@
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-upload"></span>Reenviar</button>
-      <button type="button" class="btn btn-success" id="Menu"><span class="glyphicon glyphicon-print"></span>Imprimir</button>
+      <button type="button" class="btn btn-Ligth" id="Menu"><span class="glyphicon glyphicon-print"></span>Imprimir</button>
       <button type="button" class="btn btn-success" id="Menu"> <span class="glyphicon glyphicon-eye-open"></span>Visualizar</button>
     </div>
   </div>
@@ -580,14 +579,20 @@
       <form class="" action="index.html" method="post">
         <label class="form-group">Nombre nuevo usuario</label><br>
         <input class="form-control" id="Nombre" >
-        <label class="form-group">Apellido </label><br>
+        <label class="form-group">Nombres</label><br>
+        <input class="form-control" id="Nombres" >
+        <label class="form-group">Apellido Materno</label><br>
         <input class="form-control" id="Apellido" >
+        <label class="form-group">Apellido Paterno</label><br>
+        <input class="form-control" id="Apellido2" >
         <label class="form-group">Telefono </label><br>
         <input class="form-control" id="Telefono">
-        <label class="form-group">Direccion</label><br>
-        <input class="form-control" id="Direccion">
+        <label class="form-group">Correo</label><br>
+        <input class="form-control" id="Correo">
         <label class="form-group">Contraseña </label><br>
         <input class="form-control"  id="Contraseña" >
+        <label class="form-group">Sucursal </label><br>
+        <input class="form-control"  id="Sucursal" >
       </form>
     </div>
     <div class="modal-footer">
