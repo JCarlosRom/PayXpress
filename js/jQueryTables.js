@@ -1,69 +1,6 @@
 
 
-
-function jQueryTable(id_container, headers, data, LimitRow, maxHeight, NameFunc) {
-
-	var thead = '<tr id="cabecera">';
-
-	for (var i = 0; i < headers.length; i++){
-		thead += '<th>'+headers[i]+'</th>'
-	}
-	thead += '</tr>'
-
-	$('#thead').empty()
-	$('#thead').append(thead)
-
-	var tbody = "";
-	var indices = data[0].length;
-
-	for (var i = 0; i < data.length; i++) {
-		tbody += '<tr data-toggle="tooltip" title="" id="row_'+data[i][0]+'">'
-		for (var j = 0; j < indices; j++) {
-			if(j == (indices-1))
-				if(data[i][j] == "Activo")
-					tbody += '<td><button type="button" class="btn btn-success btn-xs">&nbsp&nbsp&nbsp'+data[i][j]+'&nbsp&nbsp&nbsp</button></td>'
-				else
-					tbody += '<td><button type="button" class="btn btn-danger btn-xs">&nbsp&nbsp&nbsp'+data[i][j]+'&nbsp&nbsp&nbsp</button></td>'
-			else
-				tbody += '<td>'+data[i][j]+'</td>'
-		}
-
-		if(data[i][data[i].length-1] == "Activo"){
-			tbody += '<td>'+
-						'<a href="#" onclick="edit'+NameFunc+'('+data[i][0]+')" class="btn btn-info btn-xs" id="edit">'+
-							'<i class="glyphicon glyphicon-pencil"></i> Editar '+
-						'</a>&nbsp&nbsp&nbsp'+
-						'<a href="#" onclick="delete'+NameFunc+'('+data[i][0]+')" class="btn btn-danger btn-xs">'+
-							'<i class="glyphicon glyphicon-trash"></i> Dar de baja '+
-							'</a>&nbsp&nbsp&nbsp'+
-						'<a href="#" onclick="tienda'+NameFunc+'('+data[i][0]+')" class="btn btn-warning btn-xs">'+
-							'<i class="glyphicon glyphicon-home"></i> tiendas '+
-						'</a>&nbsp&nbsp&nbsp'+
-					'</td>'
-		}else{
-			tbody += '<td>'+
-						'<a href="#" onclick="reactiva'+NameFunc+'('+data[i][0]+')" class="btn btn-success btn-xs">'+
-							'<i class="glyphicon glyphicon-ok"></i> Reactivar '+
-						'</a>'+
-					 '</td>'
-		}
-
-
-		tbody += '</tr>'
-
-		if(i == LimitRow){
-			$('#'+id_container).css({
-	            "overflow-y":"scroll",
-	            "max-height":maxHeight
-	        });
-        }
-	}
-	$('#tbody').empty()
-	$('#tbody').append(tbody)
-
-}
-
-function jQueryTabletext(id_container, headers, data, LimitRow, maxHeight, NameFunc) {
+function jQueryTableagregar(id_container, headers, data, LimitRow, maxHeight, NameFunc) {
 
 	var thead = '<tr id="cabecera">';
 
@@ -72,8 +9,8 @@ function jQueryTabletext(id_container, headers, data, LimitRow, maxHeight, NameF
 	}
 	thead += '</tr>'
 
-	$('#thead2').empty()
-	$('#thead2').append(thead)
+	$('#thead_agregar').empty()
+	$('#thead_agregar').append(thead)
 
 
 	var tbody = "";
@@ -82,23 +19,12 @@ function jQueryTabletext(id_container, headers, data, LimitRow, maxHeight, NameF
 
 	for (var i = 0; i < data.length; i++) {
 		tbody += '<tr data-toggle="tooltip" title="" id="row_'+data[i][0]+'">'
-		
+
 		for (var j = 0; j < indices; j++) {
-			
-				
+
+
 				tbody += '<td>'+data[i][j]+'</td>'
 		}
-
-			tbody += '<td>'+
-						'<a href="#" onclick="ver'+NameFunc+'('+data[i][0]+')" class="btn btn-success btn-xs">'+
-							'<i class="glyphicon glyphicon-eye-open"></i> ver '+
-							'</a>&nbsp&nbsp&nbsp'+
-						'<a href="#" onclick="editar'+NameFunc+'('+data[i][0]+')" class="btn btn-primary btn-xs">'+
-							'<i class="glyphicon glyphicon-pencil"></i> editar '+
-						'</a>&nbsp&nbsp&nbsp'+
-					'</td>'
-		
-
 
 		tbody += '</tr>'
 
@@ -109,8 +35,88 @@ function jQueryTabletext(id_container, headers, data, LimitRow, maxHeight, NameF
 	        });
         }
 	}
-	$('#tbody2').empty()
-	$('#tbody2').append(tbody)
+	$('#tbody_agregar').empty()
+	$('#tbody_agregar').append(tbody)
+
+}
+
+function jQueryTableSearch(id_container, headers, data, LimitRow, maxHeight, NameFunc) {
+
+	var thead = '<tr id="cabecera">';
+
+	for (var i = 0; i < headers.length; i++){
+		thead += '<th>'+headers[i]+'</th>'
+	}
+	thead += '</tr>'
+
+	$('#thead_search').empty()
+	$('#thead_search').append(thead)
+
+
+	var tbody = "";
+	var indices = data[0].length;
+	$("idstore_add").val(data[0][1]);
+
+	for (var i = 0; i < data.length; i++) {
+		tbody += '<tr data-toggle="tooltip" title="" id="row_'+data[i][0]+'">'
+
+		for (var j = 0; j < indices; j++) {
+
+
+				tbody += '<td>'+data[i][j]+'</td>'
+		}
+
+		tbody += '</tr>'
+
+		if(i == LimitRow){
+			$('#'+id_container).css({
+	            "overflow-y":"scroll",
+	            "max-height":maxHeight
+	        });
+        }
+	}
+	$('#tbody_search').empty()
+	$('#tbody_search').append(tbody)
+
+}
+
+function jQueryTableclient(id_container, headers, data, LimitRow, maxHeight, NameFunc) {
+
+	var thead = '<tr id="cabecera">';
+
+	for (var i = 0; i < headers.length; i++){
+		thead += '<th>'+headers[i]+'</th>'
+	}
+	thead += '</tr>'
+
+	$('#thead_client').empty()
+	$('#thead_client').append(thead)
+
+
+	var tbody = "";
+	var indices = data[0].length;
+	$("idstore_add").val(data[0][1]);
+
+	for (var i = 0; i < data.length; i++) {
+		tbody += '<tr data-toggle="tooltip" title="" id="row_'+data[i][0]+'">'
+
+		for (var j = 0; j < indices; j++) {
+
+
+				tbody += '<td>'+data[i][j]+'</td>'
+		}
+
+		tbody += '</tr>'
+
+		if(i == LimitRow){
+			$('#'+id_container).css({
+	            "overflow-y":"scroll",
+	            "max-height":maxHeight
+	        });
+        }
+	}
+	$('#tbody_client').empty()
+	$('#tbody_client').append(tbody)
 
 }
 
@@ -151,7 +157,7 @@ function jQueryTableNormal(id_container, headers, data, LimitRow, maxHeight) {
 			}
 		}
 
-		
+
 
 		tbody += '</tr>'
 

@@ -39,7 +39,7 @@
 			$Consulta="insert into empleado (Usuario,Nombres, Apellido, Apellido2, Telefono, Correo,Contraseña,Sucursal)
 			values('$Nombre','$Nombres','$Apellido','$Apellido2','$Telefono','$Correo', '$Contraseña','$Sucursal')";
 
-			
+
 			return $this->query($Consulta);
 		}
 
@@ -85,12 +85,73 @@
 			$RFC=$info["RFC"];
 			$Producto=$info["Producto"];
 
-			$Consulta="Select cliente.Nombre,cliente.PrimerApellido ,cliente.SegundoApellido, cliente.Municipio,cliente.Calle ,cliente.CodigoPostal, cliente.NoExterior,
-			cliente.Colonia, cliente.RFC, cliente.Telefono, cliente.Telefono, cliente.Correo, producto.PrecioUnitario
-			from cliente inner join producto on producto.NombreProducto='$Producto' where RFC='$RFC'";
+			$Consulta="Select cliente.Nombre,cliente.PrimerApellido ,cliente.SegundoApellido, cliente.Municipio,Calle ,cliente.CodigoPostal, cliente.NoExterior,
+			cliente.Colonia, cliente.RFC, cliente.Telefono, cliente.Telefono, cliente.Correo, sum(temporal_venta.Cantidad*producto.PrecioUnitario) as 'Total neto'
+			from cliente inner join temporal_venta on cliente.RFC=temporal_venta.RFC inner join producto on temporal_venta.Producto=producto.NombreProducto
+			";
 
 
 			return $this->query_assoc($Consulta);
+
+		}
+
+		public function Temporal($info){
+			$RFC=$info["RFC"];
+			$Producto=$info["Producto"];
+			$Cantidad=$info["Cantidad"];
+			$Tipo_pago=$info["Tipo_pago"];
+			$Tipo_comprobante=$info["Tipo_comprobante"];
+
+			$consulta="Insert into Temporal_venta (RFC, Producto, Cantidad, Tipo_pago,Tipo_comprobante) values
+			('$RFC','$Producto', '$Cantidad','$Tipo_pago','$Tipo_comprobante')";
+
+			$this->query($consulta);
+
+			$Consulta2="Select T.RFC, T.Producto, T.Cantidad, T.Tipo_pago, T.Tipo_comprobante,
+			T.Cantidad*P.PrecioUnitario
+ 			from Temporal_venta T
+ 			inner join Producto P on T.Producto=P.NombreProducto";
+
+			return $this->query_row($Consulta2);
+		}
+
+		public function Search_product($info){
+
+			$Consulta="Select p.NombreProducto, p.Marca, p.Modelo, tp.NombreTipo, p.PrecioUnitario,
+			p.Existencia,if(p.Estatus=1,'En existencia','Agotado')
+ 		from producto p
+		inner join tipoproducto tp on p.IdTipoProducto=tp.IdTipoProducto
+		where NombreProducto like '%{$info}%'";
+
+			return $this->query_row($Consulta);
+		}
+
+		public function Add_product($info){
+
+			$Nombre=$info["Nombre"];
+			$Precio=$info["Precio"];
+			$Marca=$info["Marca"];
+			$Modelo=$info["Modelo"];
+			$Tipo=$info["Tipo"];
+
+
+			$Consulta="Insert into producto (NombreProducto, Marca, Modelo,IdTipoProducto,PrecioUnitario)
+			values('$Nombre','$Marca','$Modelo','$Tipo','$Precio')";
+
+
+
+			return $this->query($Consulta);
+
+
+		}
+
+		public function Get_client($info){
+
+			$Consulta="select IdCliente, Nombre, concat('Calle ',Calle,' #',NoExterior,' Colonia',Colonia), RFC
+			,Telefono, Correo from cliente where RFC like '%{$info}%'";
+
+
+			return $this->query_row($Consulta);
 
 		}
 

@@ -32,7 +32,18 @@
 		case 'Get_info_venta':
 			echo json_encode($Content->Get_info_venta($info));
 			break;
-
+		case 'Temporal':
+			echo json_encode($Content->Temporal($info));
+			break;
+		case "Search_product":
+			echo json_encode($Content->Search_product($info));
+			break;
+		case "Add_product":
+			echo json_encode($Content->Add_product($info));
+			break;
+		case "Get_client":
+			echo json_encode($Content->Get_client($info));
+			break;
 
 
 	}

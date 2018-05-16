@@ -111,6 +111,8 @@ if ($_SESSION["user"]=="Administrador") {
       <button type="button" class="btn btn-info btn-lg centerblock ButtonSize" id="Venta_nueva"  ><span class="glyphicon glyphicon-plus"></span>  Venta nueva</button>
     </div>
 
+    
+
 <di> </div>
   <br>
   <br>

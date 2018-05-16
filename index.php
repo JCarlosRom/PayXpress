@@ -28,7 +28,7 @@ if(isset($_SESSION["user"])){
     <link rel="stylesheet" href="EasyAutocomplete/easy-autocomplete.min.css">
 
 <!-- Additional CSS Themes file - not required-->
-  <link rel="stylesheet" href="EasyAutocomplete/easy-autocomplete.themes.min.css"> 
+  <link rel="stylesheet" href="EasyAutocomplete/easy-autocomplete.themes.min.css">
 
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -67,20 +67,7 @@ if(isset($_SESSION["user"])){
 
 				</div>
 				<div class="col-md-4">
-					<select class="form-control" id="Usuario">
-
-            <?php
-            include('clases/Persona.class.php');
-              $Content = new Persona();
-
-              $users=($Content->Get_Users());
-
-              for ($i=0; $i <count($users) ; $i++) {
-                echo "<option value=".$users[$i]["Usuario"].">".$users[$i]["Usuario"]."</option>";
-              }
-             ?>
-
-					</select>
+					<input type="text" name="" value="" class="form-control" id="Usuario">
 				</div>
 				<div class="col-md-4">
 

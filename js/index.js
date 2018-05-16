@@ -1,3 +1,6 @@
+
+
+
 var options = {
 
             url: function(phrase){
@@ -172,6 +175,45 @@ $(document).on("click","#Venta_nueva",function(e){
 
 });
 
+
+$(document).on("click","#Agregar_vn", function(e){
+
+  var RFC =$("#RFC_vn").val();
+  var Producto =$("#Producto_vn").val();
+  var Cantidad =$("#Cantidad_vn").val();
+  var Tipo_pago =$("#Tipo_pagovn").val();
+  var Tipo_comprobante=$("#Tipo_comprobantevn").val();
+
+  var data={RFC:RFC, Producto:Producto, Cantidad:Cantidad, Tipo_pago:Tipo_pago,
+  Tipo_comprobante};
+
+  $.ajax({
+    url:"routes/routeContent.php",
+    type:"POST",
+    data:{action:"Temporal", info:data},
+    dataType:"JSON",
+    beforesend(){
+
+    },
+    error:function(){
+
+    },
+    success:function(data){
+      if (data!="") {
+        var headers =["RFC","PRODUCTO","CANTIDAD","TIPO DE PAGO","TIPO DE COMPROBANTE","TOTAL"];
+        jQueryTableagregar("tableContainer", headers,data, 4, "450 px", "Image")
+
+        resetForm("formtext");
+
+
+      }
+    }
+
+
+});
+
+});
+
 $(document).on("click","#Realizar_venta", function(e){
   e.preventDefault(e);
 
@@ -200,9 +242,8 @@ $(document).on("click","#Realizar_venta", function(e){
         $("#Correo_rv").val(data[0]["Correo"]);
         $("#Telefono_rv").val(data[0]["Telefono"]);
 
-        $("#Cantidad_rv").val(Cantidad);
-        $("#Concepto_rv").val(Producto);
-        $("#Total_rv").val(data[0]["PrecioUnitario"]*Cantidad);
+
+        $("#Total_rv").val(data[0]["Total neto"]);
         $("#Tpago_rv").val(Tipo_pago);
         $("#Tcomprobante_rv").val(Tipo_comprobante);
 
@@ -248,9 +289,9 @@ $(document).on("click","#Agregar_product_end",function(e){
       toast1("Error al ingresar la venta nueva",error,8000,error);
     },success:function(data){
       if (data==true) {
-        toast1("Venta agregada correctamente","Exito",8000,success);
+      // toast1("Venta agregada correctamente","Exito",8000,success);
       }else{
-        toast1("Error al ingresar la venta nueva","error",8000,error);
+      // toast1("Error al ingresar la venta nueva","error",8000,error);
       }
     }
 
@@ -305,11 +346,36 @@ $(document).on("click", "#Facturas_tickets", function(e){
 
 });
 
+$(document).on("click","#Clientes",function(e){
+  e.preventDefault();
+  $("#Clientes_modal").modal("show");
+})
 
-$(document).on("click", "#Clientes", function(e){
+$(document).on("keyup", "#Cliente_search", function(e){
  e.preventDefault();
+ var Cliente=$("#Cliente_search").val();
 
- $("#Clientes_modal").modal("show");
+ $.ajax({
+   url:"routes/routeContent.php",
+   type:"POST",
+   data:{action:"Get_client", info:Cliente},
+   dataType:"JSON",
+   beforesend:function(){
+
+   },
+   error:function(){
+
+   },
+   success:function(data){
+     if (data!="") {
+       var headers =["ID","NOMBRE","DOMICILIO","RFC","TELEFONO","CORREO"];
+       jQueryTableclient("tableContainer", headers,data, 4, "450 px", "Image")
+
+     }
+   }
+ })
+
+
 
 
 });
@@ -333,6 +399,61 @@ $(document).on("click", "#Historial_ventas", function(e){
 
  $("#Historial_ventas_modal").modal("show");
 
+
+});
+
+$(document).on("keyup","#Search_product", function(e){
+  var busqueda=$("#Search_product").val();
+  $.ajax({
+    url:"routes/routeContent.php",
+    type:"POST",
+    data:{action:"Search_product", info:busqueda},
+    dataType:"JSON",
+    beforesend: function(){
+
+    },
+    error:function(){
+
+    }, success:function(data){
+      var headers =["Nombre","Marca","Modelo","Tipo de producto","Precio Unitario","Existencia","Estado"];
+      jQueryTableSearch("tableContainer", headers,data, 4, "450 px", "Image")
+
+    }
+
+  });
+});
+
+$(document).on("click","#Agregar_product_end",function(e){
+
+  e.preventDefault();
+
+  var Nombre=$("#Nombre_agregar");
+  var Precio=$("#Precio_agregar");
+  var Marca=$("#Marca_agregar");
+  var Modelo=$("#Modelo_agregar");
+  var Tipo=$("#Tipo");
+
+  var Producto={
+    Nombre:Nombre, Precio:Precio, Marca:Marca, Modelo:Modelo,Tipo:Tipo
+  }
+
+  $.ajax({
+    url:"routes/routeContent",
+    type:"POST",
+    data:{action:"Add_product", info:Producto},
+    dataType:"JSON",
+    beforesend:function(){
+
+    },
+    error:function(){
+
+    },
+    success:function(data){
+      if (data!=false) {
+        resetForm("formadd_product");
+      }
+    }
+  });
 
 });
 
