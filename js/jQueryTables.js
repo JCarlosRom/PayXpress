@@ -24,6 +24,8 @@ function jQueryTableagregar(id_container, headers, data, LimitRow, maxHeight, Na
 
 
 				tbody += '<td>'+data[i][j]+'</td>'
+
+
 		}
 
 		tbody += '</tr>'
@@ -64,7 +66,12 @@ function jQueryTableSearch(id_container, headers, data, LimitRow, maxHeight, Nam
 
 
 				tbody += '<td>'+data[i][j]+'</td>'
+
+
+
 		}
+
+
 
 		tbody += '</tr>'
 

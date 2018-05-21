@@ -11,7 +11,7 @@
     </div>
     <div class="modal-body">
       <div class="row">
-        <div class="col-md-1">
+        <div class="col-md-2">
             <label for="Id">RFC Cliente</label>
         </div>
         <div class="col-md-2">
@@ -28,6 +28,16 @@
           <div class="col-md-4">
             <input type="text" id="Producto_vn" class="form-control">
           </div>
+          <div class="col-md-2">
+            <label>Tipo de pago</label>
+
+          </div>
+          <div class="col-md-3">
+            <select class="form-control" id="Tipo_pagovn">
+              <option value="Tarjeta">Tarjeta</option>
+              <option value="Efectivo">Efectivo</option>
+            </select>
+          </div>
         </div>
 
         <div class="row">
@@ -35,37 +45,26 @@
             <label>Cantidad</label>
           </div>
 
-          <div class="col-md-2">
-            <input type="text" id="Cantidad_vn" class="form-control">
-          </div>
-
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-md-3">
-            <label>Tipo de pago</label>
-
-          </div>
           <div class="col-md-4">
-            <select class="form-control" id="Tipo_pagovn">
-              <option value="Tarjeta">Tarjeta</option>
-              <option value="Efectivo">Efectivo</option>
-            </select>
+            <input type="text" id="Cantidad_vn" class="form-control" style="width:100px">
           </div>
-        </div>
-        <br>
-        <div class="row">
-          <div class="col-md-3">
+
+          <div class="col-md-2">
             <label>Tipo de comprobante</label>
 
           </div>
-          <div class="col-md-4">
+          <div class="col-md-3">
             <select class="form-control" id="Tipo_comprobantevn">
               <option value="Ticket">Ticket</option>
               <option value="Factura">Factura</option>
             </select>
           </div>
+
         </div>
+        <br>
+
+        <br>
+
 
       </form>
       <div class="table-responsive row">
@@ -76,6 +75,7 @@
 		</div>
     </div>
     <div class="modal-footer">
+      <button type="button" name="button" class="btn btn-danger" id="Cancelar_venta">Cancelar venta</button>
       <button type="button" class="btn btn-success" id="Agregar_vn"><span class="glyphicon glyphicon-plus-sign"></span> Agregar a la venta</button>
       <button type="button" class="btn btn-default" id="Realizar_venta">Continuar</button>
     </div>

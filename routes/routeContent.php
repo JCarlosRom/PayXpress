@@ -44,6 +44,12 @@
 		case "Get_client":
 			echo json_encode($Content->Get_client($info));
 			break;
+		case "Temporal_open":
+			echo json_encode($Content->Temporal_open());
+			break;
+		case 'Temporal_delete':
+			echo json_encode($Content->Temporal_delete());
+			break;
 
 
 	}

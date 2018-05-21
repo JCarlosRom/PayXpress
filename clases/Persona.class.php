@@ -107,7 +107,17 @@
 
 			$this->query($consulta);
 
-			$Consulta2="Select T.RFC, T.Producto, T.Cantidad, T.Tipo_pago, T.Tipo_comprobante,
+			$Consulta2="Select T.Id, T.RFC, T.Producto, T.Cantidad, T.Tipo_pago, T.Tipo_comprobante,
+			T.Cantidad*P.PrecioUnitario
+ 			from Temporal_venta T
+ 			inner join Producto P on T.Producto=P.NombreProducto";
+
+			return $this->query_row($Consulta2);
+		}
+
+		public function Temporal_open(){
+
+			$Consulta2="Select T.Id, T.RFC, T.Producto, T.Cantidad, T.Tipo_pago, T.Tipo_comprobante,
 			T.Cantidad*P.PrecioUnitario
  			from Temporal_venta T
  			inner join Producto P on T.Producto=P.NombreProducto";
@@ -117,7 +127,7 @@
 
 		public function Search_product($info){
 
-			$Consulta="Select p.NombreProducto, p.Marca, p.Modelo, tp.NombreTipo, p.PrecioUnitario,
+			$Consulta="Select  p.NombreProducto, p.Marca, p.Modelo, tp.NombreTipo, p.PrecioUnitario,
 			p.Existencia,if(p.Estatus=1,'En existencia','Agotado')
  		from producto p
 		inner join tipoproducto tp on p.IdTipoProducto=tp.IdTipoProducto
@@ -153,6 +163,11 @@
 
 			return $this->query_row($Consulta);
 
+		}
+		public function Temporal_delete(){
+			$Consulta="Delete from Temporal_venta";
+
+			return $this->query($Consulta);
 		}
 
 

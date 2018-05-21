@@ -168,10 +168,56 @@ $(document).on("click","#Iniciar_sesion",function(e){
 });
 
 $(document).on("click","#Venta_nueva",function(e){
-  e.preventDefault();
 
-  $("#Venta_nueva_modal").modal("show");
 
+  $.ajax({
+    url:"routes/routeContent.php",
+    type:"POST",
+    data:{action:"Temporal_open"},
+    dataType:"JSON",
+    beforesend(){
+
+    },
+    error:function(){
+
+    },
+    success:function(data){
+      if (data!="") {
+        var headers =["Id","RFC","PRODUCTO","CANTIDAD","TIPO DE PAGO","TIPO DE COMPROBANTE","TOTAL","Eliminar"];
+        jQueryTableagregar("tableContainer", headers,data, 4, "450 px", "Image")
+
+        $("#Venta_nueva_modal").modal("show");
+
+
+      }else{
+          $("#Venta_nueva_modal").modal("show");
+      }
+    }
+  });
+
+
+});
+
+$(document).on("click","#Cancelar_venta", function(e){
+  $.ajax({
+    url:"routes/routeContent.php",
+    type:"POST",
+    data:{action:"Temporal_delete"},
+    dataType:"JSON",
+    beforesend(){
+
+    },
+    error:function(){
+
+    },
+    success:function(data){
+      if (data!="") {
+      $('#tbody_agregar').empty()
+
+
+      }
+    }
+  });
 
 });
 
@@ -200,7 +246,7 @@ $(document).on("click","#Agregar_vn", function(e){
     },
     success:function(data){
       if (data!="") {
-        var headers =["RFC","PRODUCTO","CANTIDAD","TIPO DE PAGO","TIPO DE COMPROBANTE","TOTAL"];
+        var headers =["Id","RFC","PRODUCTO","CANTIDAD","TIPO DE PAGO","TIPO DE COMPROBANTE","TOTAL","Eliminar"];
         jQueryTableagregar("tableContainer", headers,data, 4, "450 px", "Image")
 
         resetForm("formtext");
