@@ -210,7 +210,7 @@
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h4 class="modal-title">Agregar producto</h4>
+      <h4 class="modal-title"><span class="glyphicon glyphicon-plus-sign"></span>Agregar producto</h4>
     </div>
     <div class="modal-body">
       <form id="formadd_product">
@@ -224,16 +224,18 @@
         <input type="text" class="form-control" id="Modelo_agregar">
         <label>Tipo</label>
         <select class="form-control" id="Tipo">
-          <option value="1">Recarga</option>
+          <option value="1">Recarga Toner</option>
           <option value="2">Original</option>
           <option value="3">Genérico</option>
+          <option value="4">Recarga Tinta</option>
+          <option value="5">Accesorio</option>
         </select>
       </form>
 
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-success" id="Agregar_product_end">Agregar</button>
-      <button type="button" name="button" class="btn btn-primary" data-dismiss="modal"><span class="glyphicon glyphicon-remove-sign"></span> Cancelar</button>
+      <button type="button" class="btn btn-success" id="Agregar_product_end"><span class="glyphicon glyphicon-plus-sign"></span> </button>
+      <button type="button" name="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-sign"></span> </button>
     </div>
   </div>
 
@@ -324,7 +326,8 @@
       <div class="col-md-6">
         <label>Tipo de servicio</label>
         <select class="form-control" name="">
-          <option>Tipo de servicio</option>
+          <option>Reparacion</option>
+          <option>Mantenimiento</option>
         </select>
       </div>
     </div>
