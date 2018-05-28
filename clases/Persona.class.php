@@ -12,7 +12,7 @@
 
 			$Contraseña_crypt=md5($Contraseña);
 
-			$Consulta= "Select * from empleado where Contraseña='$Contraseña_crypt' && Usuario='$Usuario'";
+			$Consulta= "CALL `Login`('$Contraseña_crypt', '$Usuario')";
 
 			$respuesta= $this->query_assoc($Consulta);
 
