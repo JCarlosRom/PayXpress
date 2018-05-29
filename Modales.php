@@ -116,6 +116,10 @@
           <label>CORREO</label>
           <input type="text" name="" value="" class="form-control" id="Correo_rv" disabled>
 
+          <?php
+            echo "<input type='text' value='' id='Id_cliente_rv' hidden >"
+           ?>
+
         </div>
 
       </div>
@@ -146,7 +150,7 @@
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
-      <button type="button" class="btn btn-success" >Generar y cobrar</button>
+      <button type="button" class="btn btn-success" id="Venta" >Generar y cobrar</button>
     </div>
   </div>
 

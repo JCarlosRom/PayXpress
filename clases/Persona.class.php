@@ -59,12 +59,21 @@
 
 
 
-		 public function Get_PRODUCTOS($info){
+		 public function Get_PRODUCTOS_autocomplete($info){
 
 		 		$Consulta ="Select NombreProducto name from Producto where NombreProducto LIKE '%{$info}%'";
 
 		 		return $this->query_assoc($Consulta);
 		 	}
+			public function Get_products(){
+
+				 $Consulta ="Select p.IdProducto, p.NombreProducto, p.Marca, p.Modelo, tp.NombreTipo, p.PrecioUnitario,
+	 			p.Existencia,if(p.Estatus=1,'En existencia','Agotado')
+	  		from producto p
+	 		inner join tipoproducto tp on p.IdTipoProducto=tp.IdTipoProducto";
+
+				 return $this->query_row($Consulta);
+			 }
 
 		public function Venta_nueva($info){
 			$Nombre=$info["Nombre"];
@@ -85,7 +94,7 @@
 			$RFC=$info["RFC"];
 			$Producto=$info["Producto"];
 
-			$Consulta="Select cliente.Nombre,cliente.PrimerApellido ,cliente.SegundoApellido, cliente.Municipio,Calle ,cliente.CodigoPostal, cliente.NoExterior,
+			$Consulta="Select cliente.IdCliente,cliente.Nombre,cliente.PrimerApellido ,cliente.SegundoApellido, cliente.Municipio,Calle ,cliente.CodigoPostal, cliente.NoExterior,
 			cliente.Colonia, cliente.RFC, cliente.Telefono, cliente.Telefono, cliente.Correo, sum(temporal_venta.Cantidad*producto.PrecioUnitario) as 'Total neto'
 			from cliente inner join temporal_venta on cliente.RFC=temporal_venta.RFC inner join producto on temporal_venta.Producto=producto.NombreProducto
 			";
@@ -102,17 +111,10 @@
 			$Tipo_pago=$info["Tipo_pago"];
 			$Tipo_comprobante=$info["Tipo_comprobante"];
 
-			$consulta="Insert into Temporal_venta (RFC, Producto, Cantidad, Tipo_pago,Tipo_comprobante) values
-			('$RFC','$Producto', '$Cantidad','$Tipo_pago','$Tipo_comprobante')";
+			$consulta="CALL `Crear_temporal`('$RFC', '$Producto', '$Cantidad', '$Tipo_pago', '$Tipo_comprobante')";
 
-			$this->query($consulta);
+		 return $this->query_row($consulta);
 
-			$Consulta2="Select T.Id, T.RFC, T.Producto, T.Cantidad, T.Tipo_pago, T.Tipo_comprobante,
-			T.Cantidad*P.PrecioUnitario
- 			from Temporal_venta T
- 			inner join Producto P on T.Producto=P.NombreProducto";
-
-			return $this->query_row($Consulta2);
 		}
 
 		public function Temporal_open(){
@@ -127,7 +129,7 @@
 
 		public function Search_product($info){
 
-			$Consulta="Select  p.NombreProducto, p.Marca, p.Modelo, tp.NombreTipo, p.PrecioUnitario,
+			$Consulta="Select p.IdProducto, p.NombreProducto, p.Marca, p.Modelo, tp.NombreTipo, p.PrecioUnitario,
 			p.Existencia,if(p.Estatus=1,'En existencia','Agotado')
  		from producto p
 		inner join tipoproducto tp on p.IdTipoProducto=tp.IdTipoProducto
@@ -168,6 +170,17 @@
 			$Consulta="Delete from Temporal_venta";
 
 			return $this->query($Consulta);
+		}
+
+		public function Venta($info){
+
+		 $Empleado=$info["Empleado"];
+		 $Cliente=$info["Cliente"];
+
+		 $Consulta="CALL `Venta`('$Empleado', '$Cliente')";
+
+		 return $this->query($Consulta);
+
 		}
 
 

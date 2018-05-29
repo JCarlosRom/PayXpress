@@ -42,6 +42,48 @@ function jQueryTableagregar(id_container, headers, data, LimitRow, maxHeight, Na
 
 }
 
+function jQueryTableProductos(id_container, headers, data, LimitRow, maxHeight, NameFunc) {
+
+	var thead = '<tr id="cabecera">';
+
+	for (var i = 0; i < headers.length; i++){
+		thead += '<th>'+headers[i]+'</th>'
+	}
+	thead += '</tr>'
+
+	$('#thead_productos').empty()
+	$('#thead_productos').append(thead)
+
+
+	var tbody = "";
+	var indices = data[0].length;
+	$("idstore_add").val(data[0][1]);
+
+	for (var i = 0; i < data.length; i++) {
+		tbody += '<tr data-toggle="tooltip" title="" id="row_'+data[i][0]+'">'
+
+		for (var j = 0; j < indices; j++) {
+
+
+				tbody += '<td>'+data[i][j]+'</td>'
+
+
+		}
+
+		tbody += '</tr>'
+
+		if(i == LimitRow){
+			$('#'+id_container).css({
+	            "overflow-y":"scroll",
+	            "max-height":maxHeight
+	        });
+        }
+	}
+	$('#tbody_productos').empty()
+	$('#tbody_productos').append(tbody)
+
+}
+
 function jQueryTableSearch(id_container, headers, data, LimitRow, maxHeight, NameFunc) {
 
 	var thead = '<tr id="cabecera">';

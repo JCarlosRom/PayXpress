@@ -26,8 +26,8 @@
 		case "Get_rfc":
 			echo json_encode($Content->Get_rfc($info));
 			break;
-		case "Get_PRODUCTOS":
-			echo json_encode($Content->Get_PRODUCTOS($info));
+		case "Get_PRODUCTOS_autocomplete":
+			echo json_encode($Content->Get_PRODUCTOS_autocomplete($info));
 			break;
 		case 'Get_info_venta':
 			echo json_encode($Content->Get_info_venta($info));
@@ -49,6 +49,12 @@
 			break;
 		case 'Temporal_delete':
 			echo json_encode($Content->Temporal_delete());
+			break;
+		case "Venta":
+			echo json_encode($Content->Venta($info));
+			break;
+		case "Get_products":
+			echo json_encode($Content->Get_products());
 			break;
 
 

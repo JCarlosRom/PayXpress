@@ -8,6 +8,7 @@ if(!isset($_SESSION["user"])){
 
 
 }
+
 if ($_SESSION["user"]=="Administrador") {
 
 	$Button_registrar="<li><a id='Registrar'> <span class='glyphicon glyphicon-user'></span> Registrar nuevo usuario</a></li>";
@@ -65,6 +66,9 @@ if ($_SESSION["user"]=="Administrador") {
         </button>
         <a class="navbar-brand" href="#">TintaXpress</a>
       </div>
+      <?php
+          echo "<input type='text'  id='Usuario'  value='{$_SESSION['user']}'  hidden>"
+       ?>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -111,7 +115,7 @@ if ($_SESSION["user"]=="Administrador") {
       <button type="button" class="btn btn-info btn-lg centerblock ButtonSize" id="Venta_nueva"  ><span class="glyphicon glyphicon-plus"></span>  Venta nueva</button>
     </div>
 
-    
+
 
 <di> </div>
   <br>

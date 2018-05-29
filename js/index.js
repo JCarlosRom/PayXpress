@@ -61,7 +61,7 @@ var options = {
                     method:"POST",
                     data:{
 
-                        action:"Get_PRODUCTOS"
+                        action:"Get_PRODUCTOS_autocomplete"
                     }
                 },
 
@@ -85,6 +85,32 @@ $(document).on("click","#Registrar",function(e){
 
 });
 
+$(document).on("click", "#Venta", function(e){
+  var Empleado =$("#Usuario").val();
+  var Cliente =$("#Id_cliente_rv").val();
+
+  var venta={Empleado:Empleado, Cliente: Cliente}
+
+  $.ajax({
+      url:"routes/routeContent.php",
+      type:"POST",
+      data:{action:"Venta", info:venta},
+      dataType:"JSON",
+      beforesend:function(){
+
+      },error: function(){
+
+      }, success: function(data){
+        toast1("Exito","Venta realizada correctamente",8000,"success");
+
+        $("#Realizar_venta_modal").modal("hide");
+        $("#Venta_nueva_modal").modal("hide");
+        $('#tbody_agregar').empty()
+
+      }
+  });
+});
+
 $(document).on("click","#Registrar_usuario",function(e){
   var Usuario= $("#Nombre").val();
   var Nombres= $("#Nombres").val();
@@ -96,6 +122,7 @@ $(document).on("click","#Registrar_usuario",function(e){
   var Sucursal=$("#Sucursal").val();
 
   var Nuevo_registro ={
+
     Usuario:Usuario, Nombres:Nombres, Apellido:Apellido, Apellido2:Apellido2, Telefono: Telefono,
     Correo:Correo, Contraseña:Contraseña, Sucursal:Sucursal
   }
@@ -287,11 +314,10 @@ $(document).on("click","#Realizar_venta", function(e){
         $("#Domicilio_rv").val(data[0]["Calle"]+" #"+data[0]["NoExterior"]+" colonia "+data[0]["Colonia"]);
         $("#Correo_rv").val(data[0]["Correo"]);
         $("#Telefono_rv").val(data[0]["Telefono"]);
-
-
         $("#Total_rv").val(data[0]["Total neto"]);
         $("#Tpago_rv").val(Tipo_pago);
         $("#Tcomprobante_rv").val(Tipo_comprobante);
+        $("#Id_cliente_rv").val(data[0]["IdCliente"]);
 
 
         $("#Realizar_venta_modal").modal("show");
@@ -347,8 +373,7 @@ $(document).on("click","#Agregar_product_end",function(e){
 $(document).on("click", "#Lista_productos", function(e){
  e.preventDefault();
 
- $("#Lista_productos_modal").modal("show");
-
+ location.href="Lista_productos.php";
 
 });
 
@@ -448,26 +473,7 @@ $(document).on("click", "#Historial_ventas", function(e){
 
 });
 
-$(document).on("keyup","#Search_product", function(e){
-  var busqueda=$("#Search_product").val();
-  $.ajax({
-    url:"routes/routeContent.php",
-    type:"POST",
-    data:{action:"Search_product", info:busqueda},
-    dataType:"JSON",
-    beforesend: function(){
 
-    },
-    error:function(){
-
-    }, success:function(data){
-      var headers =["Nombre","Marca","Modelo","Tipo de producto","Precio Unitario","Existencia","Estado"];
-      jQueryTableSearch("tableContainer", headers,data, 4, "450 px", "Image")
-
-    }
-
-  });
-});
 
 $(document).on("click","#Agregar_product_end",function(e){
 
