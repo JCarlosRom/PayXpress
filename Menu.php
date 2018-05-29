@@ -11,9 +11,10 @@ if(!isset($_SESSION["user"])){
 
 if ($_SESSION["user"]=="Administrador") {
 
-	$Button_registrar="<li><a id='Registrar'> <span class='glyphicon glyphicon-user'></span> Registrar nuevo usuario</a></li>";
+	$Button_registrar="<li><a id='Registrar'> <span class='glyphicon glyphicon-user'></span> Registrar nuevo usuario</a></li>
+  <li><a id='Registrar_cliente'> <span class='glyphicon glyphicon-user'></span> Registrar nuevo cliente</a></li>";
 }else {
-	$Button_registrar="";
+	$Button_registrar="<li><a id='Registrar_cliente'> <span class='glyphicon glyphicon-user'></span> Registrar nuevo cliente</a></li>";
 }
  ?>
 <!DOCTYPE html>

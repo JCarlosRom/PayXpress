@@ -56,6 +56,9 @@
 		case "Get_products":
 			echo json_encode($Content->Get_products());
 			break;
+		case "Registro_cliente":
+			echo json_encode($Content->Registro_cliente($info));
+			break;
 
 
 	}

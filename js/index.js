@@ -85,6 +85,13 @@ $(document).on("click","#Registrar",function(e){
 
 });
 
+$(document).on("click","#Registrar_cliente",function(e){
+  e.preventDefault();
+
+  $("#Registrar_cliente_modal").modal("show");
+
+});
+
 $(document).on("click", "#Venta", function(e){
   var Empleado =$("#Usuario").val();
   var Cliente =$("#Id_cliente_rv").val();
@@ -131,6 +138,54 @@ $(document).on("click","#Registrar_usuario",function(e){
     url:"routes/routeContent.php",
     type:"POST",
     data:{action:"Registro", info:Nuevo_registro},
+    dataType:"JSON",
+    beforesend(){
+
+    },error:function(error){
+      toast1("El registro no se pudo llevar a cabo de forma correcta",error,8000,"error");
+    },
+    success:function(data){
+
+            if(data === true){
+              toast1("El registro se pudo llevar a cabo de forma correcta","Agregado correctamente",8000,"success");
+
+            }else {
+                toast1("error", "Registro Incorrecto",8000,"error");
+            }
+    }
+
+
+  });
+
+});
+
+$(document).on("click","#Registrar_cliente_end",function(e){
+  ;
+  var Nombres= $("#Nombres_cliente").val();
+  var Apellido=$("#Apellido_cliente").val();
+  var Apellido2=$("#Apellido2_cliente").val();
+  var Municipio=$("#Municipio_cliente").val();
+  var Calle=$("#Calle_cliente").val();
+  var Codigo=$("#Codigo_cliente").val();
+  var Numero=$("#No_exterior_cliente").val();
+  var Colonia=$("#Colonia_cliente").val();
+  var RFC=$("#RFC_cliente").val();
+  var Telefono=$("#Telefono_cliente").val();
+  var Correo=$("#Correo_cliente").val();
+  var Empresa=$("#Empresa_cliente").val();
+
+  var Nuevo_registro ={
+
+    Nombres:Nombres, Apellido:Apellido, Apellido2:Apellido2,Municipio:Municipio, Calle:Calle,Codigo:Codigo,Numero:Numero,Colonia:Colonia,
+    RFC:RFC, Telefono: Telefono,
+    Correo:Correo, Empresa:Empresa
+    
+  }
+
+  $.ajax({
+    url:"routes/routeContent.php",
+    type:"POST",
+    data:{action:"Registro_cliente", info:Nuevo_registro},
     dataType:"JSON",
     beforesend(){
 

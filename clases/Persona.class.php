@@ -42,6 +42,29 @@
 
 			return $this->query($Consulta);
 		}
+		public function Registro_cliente ($info){
+
+			$Nombres=$info["Nombres"];
+			$Apellido=$info["Apellido"];
+			$Apellido2=$info["Apellido2"];
+			$Municipio=$info["Municipio"];
+			$Calle=$info["Calle"];
+			$Codigo=$info["Codigo"];
+			$Numero=$info["Numero"];
+			$Colonia=$info["Colonia"];
+			$RFC=$info["RFC"];
+			$Telefono=$info["Telefono"];
+			$Correo=$info["Correo"];
+			$Empresa=$info["Empresa"];
+
+			$Consulta="insert into cliente (Nombre, PrimerApellido, SegundoApellido,Municipio, Calle,CodigoPostal,
+			NoExterior,Colonia,RFC,Telefono, Correo,Empresa)
+			values('$Nombres','$Apellido','$Apellido2','$Municipio','$Calle','$Codigo','$Numero','$Colonia','$RFC',
+			'$Telefono','$Correo','$Empresa')";
+
+
+			return $this->query($Consulta);
+		}
 
 
 		public function Get_Users(){

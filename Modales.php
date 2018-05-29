@@ -592,3 +592,48 @@
 
 </div>
 </div>
+<div id="Registrar_cliente_modal" class="modal fade" role="dialog">
+<div class="modal-dialog">
+
+  <!-- Modal content-->
+  <div class="modal-content">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">&times;</button>
+      <h4 class="modal-title">Registrar</h4>
+    </div>
+    <div class="modal-body">
+      <form class="" action="index.html" method="post">
+        <label class="form-group">Nombres</label><br>
+        <input class="form-control" id="Nombres_cliente" >
+        <label class="form-group">Apellido Materno</label><br>
+        <input class="form-control" id="Apellido_cliente" >
+        <label class="form-group">Apellido Paterno</label><br>
+        <input class="form-control" id="Apellido2_cliente" >
+        <label class="form-group">Municipio </label><br>
+        <input class="form-control" id="Municipio_cliente">
+        <label class="form-group">Calle </label><br>
+        <input class="form-control" id="Calle_cliente">
+        <label class="form-group">Código postal </label><br>
+        <input class="form-control" id="Codigo_cliente">
+        <label class="form-group">No. Exterior </label><br>
+        <input class="form-control" id="No_exterior_cliente">
+        <label class="form-group">Colonia </label><br>
+        <input class="form-control" id="Colonia_cliente">
+        <label class="form-group">RFC </label><br>
+        <input class="form-control" id="RFC_cliente">
+        <label class="form-group">Telefono </label><br>
+        <input class="form-control" id="Telefono_cliente">
+        <label class="form-group">Correo</label><br>
+        <input class="form-control" id="Correo_cliente">
+        <label class="form-group">Empresa </label><br>
+        <input class="form-control"  id="Empresa_cliente" >
+      </form>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-default" data-dismiss="modal" id="Registrar_cliente_end"> <span class="glyphicon glyphicon-ok-sign"> Registrar</span></button>
+      <button type="button" class="btn btn-danger" data-dismiss="modal" > <span class="glyphicon glyphicon-remove-circle"> Cerrar</span></button>
+    </div>
+  </div>
+
+</div>
+</div>
