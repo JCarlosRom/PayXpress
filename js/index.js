@@ -93,8 +93,12 @@ $(document).on("click","#Registrar_cliente",function(e){
 });
 
 $(document).on("click", "#Venta", function(e){
+
+ window.open("pdf.php");
+
   var Empleado =$("#Usuario").val();
   var Cliente =$("#Id_cliente_rv").val();
+
 
   var venta={Empleado:Empleado, Cliente: Cliente}
 
@@ -281,6 +285,7 @@ $(document).on("click","#Venta_nueva",function(e){
 });
 
 $(document).on("click","#Cancelar_venta", function(e){
+
   $("#Tipo_pagovn").prop('disabled',false);
   $("#Tipo_comprobantevn").prop('disabled',false);
   $.ajax({
@@ -304,6 +309,7 @@ $(document).on("click","#Cancelar_venta", function(e){
   });
 
 });
+
 
 
 $(document).on("click","#Agregar_vn", function(e){
@@ -336,7 +342,8 @@ $(document).on("click","#Agregar_vn", function(e){
         var headers =["Id","RFC","PRODUCTO","CANTIDAD","TIPO DE PAGO","TIPO DE COMPROBANTE","TOTAL","Eliminar"];
         jQueryTableagregar("tableContainer", headers,data, 4, "450 px", "Image")
 
-        resetForm("formtext");
+        $("#Producto_vn").val("");
+        $("#Cantidad_vn").val("");
 
 
       }
@@ -437,13 +444,7 @@ $(document).on("click", "#Lista_productos", function(e){
 
 });
 
-$(document).on("click", "#Agregar_producto", function(e){
-  e.preventDefault();
 
-  $("#Agregar_modal").modal("show");
-
-
-});
 
 $(document).on("click", "#Actualizar", function(e){
   e.preventDefault();
@@ -464,7 +465,8 @@ $(document).on("click", "#Actualizar_inv", function(e){
 $(document).on("click", "#Servicio_tecnico", function(e){
  e.preventDefault();
 
- $("#Servicio_tecnico_modal").modal("show");
+ location.href="Servicios.php";
+
 
 
 });
@@ -535,39 +537,6 @@ $(document).on("click", "#Historial_ventas", function(e){
 
 
 
-$(document).on("click","#Agregar_product_end",function(e){
-
-  e.preventDefault();
-
-  var Nombre=$("#Nombre_agregar");
-  var Precio=$("#Precio_agregar");
-  var Marca=$("#Marca_agregar");
-  var Modelo=$("#Modelo_agregar");
-  var Tipo=$("#Tipo");
-
-  var Producto={
-    Nombre:Nombre, Precio:Precio, Marca:Marca, Modelo:Modelo,Tipo:Tipo
-  }
-
-  $.ajax({
-    url:"routes/routeContent",
-    type:"POST",
-    data:{action:"Add_product", info:Producto},
-    dataType:"JSON",
-    beforesend:function(){
-
-    },
-    error:function(){
-
-    },
-    success:function(data){
-      if (data!=false) {
-        resetForm("formadd_product");
-      }
-    }
-  });
-
-});
 
 
 $(document).on("click", "#Cerrar_sesion", function(e){

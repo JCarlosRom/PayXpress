@@ -18,8 +18,6 @@
           <input class="form-control" id="RFC_vn">
         </div>
       </div>
-      <form class="form-group" id="formtext">
-
         <br>
         <div class="row">
           <div class="col-md-2 centerblock">
@@ -28,6 +26,7 @@
           <div class="col-md-4">
             <input type="text" id="Producto_vn" class="form-control">
           </div>
+
           <div class="col-md-2">
             <label>Tipo de pago</label>
 
@@ -66,7 +65,7 @@
         <br>
 
 
-      </form>
+
       <div class="table-responsive row">
 			<table class= "table table-striped table-bordered">
 				<thead id="thead_agregar"></thead>
@@ -77,7 +76,7 @@
     <div class="modal-footer">
       <button type="button" name="button" class="btn btn-danger" id="Cancelar_venta">Cancelar venta</button>
       <button type="button" class="btn btn-success" id="Agregar_vn"><span class="glyphicon glyphicon-plus-sign"></span> Agregar a la venta</button>
-      <button type="button" class="btn btn-default" id="Realizar_venta">Continuar</button>
+      <button type="button" class="btn btn-primary" id="Realizar_venta">Continuar</button>
     </div>
   </div>
 
@@ -100,7 +99,9 @@
         <div class="col-md-2">
           <label>RFC</label>
           <input type="text" name="" value="" class="form-control" id="RFC_rv"  disabled>
-
+          <?php
+              echo "<input type='text'  id='Usuario'  value='{$_SESSION['user']}' hidden  >"
+           ?>
         </div>
         <div class="col-md-2">
           <label>NOMBRE</label>
@@ -157,94 +158,11 @@
 </div>
 </div>
 
-<!-- Modal Lista de productos -->
 
-<div id="Lista_productos_modal" class="modal fade" role="dialog">
-<div class="modal-dialog">
-
-  <!-- Modal content-->
-  <div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h4 class="modal-title">Lista de productos</h4>
-    </div>
-    <div class="modal-body">
-      <form >
-        <div class="row">
-          <div class="col-md-2">
-            <label>BUSCAR</label>
-          </div>
-          <div class="col-md-6">
-            <input class="form-control" id="Search_product">
-
-          </div>
-          <div class="col-md-4">
-            <button type="button" name="button" class="btn btn-success" id="Agregar_producto"> <span class="glyphicon glyphicon-plus-sign"></span> Agregar</button>
-
-          </div>
-
-        </div>
-        <br>
-        <div class="table-responsive row">
-  			<table class= "table table-striped table-bordered">
-  				<thead id="thead_search"></thead>
-  				<tbody id="tbody_search"></tbody>
-  			</table>
-  		</div>
-        <br>
-        <br>
-
-      </form>
-    </div>
-    <div class="modal-footer">
-      <button type="button" name="button" class="btn btn-default" id="Actualizar_inv"><span class="glyphicon glyphicon-refresh"></span> Actualizar inventario</button>
-      <button type="button" name="button" class="btn btn-primary" id="Actualizar"><span class="glyphicon glyphicon-refresh"></span> Actualizar</button>
-    </div>
-  </div>
-
-</div>
-</div>
 
 <!-- Modal agregar productos -->
 
-<div id="Agregar_modal" class="modal fade" role="dialog">
-<div class="modal-dialog">
 
-  <!-- Modal content-->
-  <div class="modal-content">
-    <div class="modal-header">
-      <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h4 class="modal-title"><span class="glyphicon glyphicon-plus-sign"></span>Agregar producto</h4>
-    </div>
-    <div class="modal-body">
-      <form id="formadd_product">
-        <label>Nombre</label>
-        <input type="text"  class="form-control" id="Nombre_agregar">
-        <label>Precio</label>
-        <input type="text" class="form-control" id="Precio_agregar">
-        <label>Marca</label>
-        <input type="text" class="form-control" id="Marca_agregar">
-        <label>Modelo</label>
-        <input type="text" class="form-control" id="Modelo_agregar">
-        <label>Tipo</label>
-        <select class="form-control" id="Tipo">
-          <option value="1">Recarga Toner</option>
-          <option value="2">Original</option>
-          <option value="3">Genérico</option>
-          <option value="4">Recarga Tinta</option>
-          <option value="5">Accesorio</option>
-        </select>
-      </form>
-
-    </div>
-    <div class="modal-footer">
-      <button type="button" class="btn btn-success" id="Agregar_product_end"><span class="glyphicon glyphicon-plus-sign"></span> </button>
-      <button type="button" name="button" class="btn btn-danger" data-dismiss="modal"><span class="glyphicon glyphicon-remove-sign"></span> </button>
-    </div>
-  </div>
-
-</div>
-</div>
 
 <div id="Actualizar_modal" class="modal fade" role="dialog">
 <div class="modal-dialog">
@@ -318,7 +236,7 @@
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h4 class="modal-title">Validar</h4>
+      <h4 class="modal-title">Servicio técnico</h4>
     </div>
     <div class="modal-body">
       <form class="" action="index.html" method="post">
@@ -367,7 +285,7 @@
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h4 class="modal-title">Validar</h4>
+      <h4 class="modal-title">Tickets</h4>
     </div>
     <div class="modal-body">
       <form class="" action="index.html" method="post">
@@ -399,7 +317,7 @@
       </form>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-Ligth" id="Menu"><span class="glyphicon glyphicon-print"></span>Imprimir</button>
+      <button type="button" class="btn btn-Ligth" id="Menu"><span class="glyphicon glyphicon-print"></span> Imprimir</button>
       <!-- <button type="button" class="btn btn-success" id="Menu"> <span class="glyphicon glyphicon-eye-open"></span>Visualizar</button> -->
     </div>
   </div>
@@ -415,7 +333,7 @@
   <div class="modal-content">
     <div class="modal-header">
       <button type="button" class="close" data-dismiss="modal">&times;</button>
-      <h4 class="modal-title">Validar</h4>
+      <h4 class="modal-title">Clientes</h4>
     </div>
     <div class="modal-body">
       <form class="" action="index.html" method="post">
@@ -431,7 +349,7 @@
     </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-default" id="Actualizar_cliente"><span class="glyphicon glyphicon-refresh"></span>Actualizar</button>
+      <button type="button" class="btn btn-primary" id="Actualizar_cliente"><span class="glyphicon glyphicon-refresh"></span>Actualizar</button>
 
 
     </div>

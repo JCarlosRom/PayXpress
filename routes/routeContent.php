@@ -59,6 +59,24 @@
 		case "Registro_cliente":
 			echo json_encode($Content->Registro_cliente($info));
 			break;
+		case "Edit_product":
+			echo json_encode($Content->Edit_product($info));
+			break;
+		case "Get_Services":
+			echo json_encode($Content->Get_Services());
+			break;
+		case "Search_Services":
+			echo json_encode($Content->Search_Services($info));
+			break;
+		case "Agregar_servicio":
+			echo json_encode($Content->Agregar_servicio($info));
+			break;
+		case "Actualizar_servicio":
+			echo json_encode($Content->Actualizar_servicio($info));
+			break;
+		case "Get_Services_autocomplete":
+		echo json_encode($Content->Get_Services_autocomplete($info));
+			break;
 
 
 	}

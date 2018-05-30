@@ -200,12 +200,73 @@
 		 $Empleado=$info["Empleado"];
 		 $Cliente=$info["Cliente"];
 
+
 		 $Consulta="CALL `Venta`('$Empleado', '$Cliente')";
 
 		 return $this->query($Consulta);
 
 		}
+		public function Edit_product($info){
+			$Nombre=$info["Nombre"];
+			$Precio=$info["Precio"];
+			$Marca=$info["Marca"];
+			$Modelo=$info["Modelo"];
+			$Tipo=$info["Tipo"];
+			$Existencia=$info["Existencia"];
 
+			$Consulta="Update producto set NombreProducto='$Nombre', Marca='$Marca',
+			Modelo='$Modelo',IdTipoProducto='$Tipo', PrecioUnitario='$Precio',Existencia='$Existencia'  where NombreProducto='$Nombre'";
+
+			return $this->query($Consulta);
+		}
+
+		public function Get_Services(){
+
+			$Consulta="Select s.IdServicio, s.NombreServicio, s.PrecioUnitario,s.Fecha_llegada , tp.NombreTipo,es.NombreEstado
+			from servicio s inner join tiposervicio tp on s.IdTipoServicio=tp.IdTipoServicio inner join
+			estadoservicio es on s.IdEstado=es.IdEstado";
+
+			return $this->query_row($Consulta);
+		}
+
+		public function Search_Services($info){
+
+			$Consulta="Select s.IdServicio, s.NombreServicio, s.PrecioUnitario,s.Fecha_llegada ,tp.NombreTipo,es.NombreEstado
+			from servicio s inner join tiposervicio tp on s.IdTipoServicio=tp.IdTipoServicio inner join
+			estadoservicio es on s.IdEstado=es.IdEstado where s.NombreServicio LIKE '%{$info}%'";
+
+			return $this->query_row($Consulta);
+
+		}
+		public function Agregar_servicio($info){
+			$Nombre=$info["Nombre"];
+			$Precio=$info["Precio"];
+			$Fecha_llegada=$info["Fecha_llegada"];
+			$Tipo=$info["Tipo"];
+			$Estado=$info["Estado"];
+
+			$Consulta="Insert into servicio (NombreServicio, PrecioUnitario,Fecha_llegada,IdTipoServicio,IdEstado)
+			values('$Nombre','$Precio','$Fecha_llegada','$Tipo','$Estado')";
+
+			return $this->query($Consulta);
+		}
+		public function Actualizar_servicio($info){
+			$Nombre=$info["Nombre"];
+			$Estatus=$info["Estatus"];
+
+			$Consulta="Update servicio set IdEstado='$Estatus'where NombreServicio='$Nombre'";
+
+			return $this->query($Consulta);
+		}
+
+		public function Get_Services_autocomplete($info){
+
+			$Consulta="Select NombreServicio name from Servicio where NombreServicio like '%{$info}%'";
+
+			return $this->query_assoc($Consulta);
+
+
+		}
 
 		}
 

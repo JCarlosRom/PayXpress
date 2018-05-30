@@ -67,9 +67,7 @@ if ($_SESSION["user"]=="Administrador") {
         </button>
         <a class="navbar-brand" href="#">TintaXpress</a>
       </div>
-      <?php
-          echo "<input type='text'  id='Usuario'  value='{$_SESSION['user']}'  hidden>"
-       ?>
+      
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
