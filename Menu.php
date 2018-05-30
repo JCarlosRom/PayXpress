@@ -74,13 +74,13 @@ if ($_SESSION["user"]=="Administrador") {
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li><a href="#">Otro</a></li>
+          <!-- <li><a href="#">Otro</a></li> -->
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Catalogos <span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li><a id="Lista_productos"><span class="glyphicon glyphicon-list-alt"></span> Lista de Productos</a></li>
               <li><a id="Servicio_tecnico"><span class="glyphicon glyphicon-wrench"></span> Servicio Tecnico</a></li>
-              <li><a id="Facturas_tickets"><span class="glyphicon glyphicon-duplicate"></span> Tickets </a></li>
+              <li><a id="Facturas_tickets"><span class="glyphicon glyphicon-print"></span> Imprimir Ticket </a></li>
               <li><a id="Clientes"><span class="glyphicon glyphicon-user"></span> Clientes </a></li>
              <li><a  id="Historial_ventas"><span class="glyphicon glyphicon-th-list"></span> Historial de ventas </a></li>
             </ul>
