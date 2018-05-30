@@ -400,7 +400,7 @@
     </div>
     <div class="modal-footer">
       <button type="button" class="btn btn-Ligth" id="Menu"><span class="glyphicon glyphicon-print"></span>Imprimir</button>
-      <button type="button" class="btn btn-success" id="Menu"> <span class="glyphicon glyphicon-eye-open"></span>Visualizar</button>
+      <!-- <button type="button" class="btn btn-success" id="Menu"> <span class="glyphicon glyphicon-eye-open"></span>Visualizar</button> -->
     </div>
   </div>
 
@@ -433,7 +433,6 @@
     <div class="modal-footer">
       <button type="button" class="btn btn-default" id="Actualizar_cliente"><span class="glyphicon glyphicon-refresh"></span>Actualizar</button>
 
-      <button type="button" class="btn btn-success" id="Agregar_cliente"> <span class="glyphicon glyphicon-plus-sign"></span> Agregar</button>
 
     </div>
   </div>
@@ -570,9 +569,9 @@
         <input class="form-control" id="Nombre" >
         <label class="form-group">Nombres</label><br>
         <input class="form-control" id="Nombres" >
-        <label class="form-group">Apellido Materno</label><br>
-        <input class="form-control" id="Apellido" >
         <label class="form-group">Apellido Paterno</label><br>
+        <input class="form-control" id="Apellido" >
+        <label class="form-group">Apellido Materno</label><br>
         <input class="form-control" id="Apellido2" >
         <label class="form-group">Telefono </label><br>
         <input class="form-control" id="Telefono">
@@ -605,9 +604,9 @@
       <form class="" action="index.html" method="post">
         <label class="form-group">Nombres</label><br>
         <input class="form-control" id="Nombres_cliente" >
-        <label class="form-group">Apellido Materno</label><br>
-        <input class="form-control" id="Apellido_cliente" >
         <label class="form-group">Apellido Paterno</label><br>
+        <input class="form-control" id="Apellido_cliente" >
+        <label class="form-group">Apellido Materno</label><br>
         <input class="form-control" id="Apellido2_cliente" >
         <label class="form-group">Municipio </label><br>
         <input class="form-control" id="Municipio_cliente">
