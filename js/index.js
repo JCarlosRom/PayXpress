@@ -179,7 +179,7 @@ $(document).on("click","#Registrar_cliente_end",function(e){
     Nombres:Nombres, Apellido:Apellido, Apellido2:Apellido2,Municipio:Municipio, Calle:Calle,Codigo:Codigo,Numero:Numero,Colonia:Colonia,
     RFC:RFC, Telefono: Telefono,
     Correo:Correo, Empresa:Empresa
-    
+
   }
 
   $.ajax({
@@ -281,6 +281,8 @@ $(document).on("click","#Venta_nueva",function(e){
 });
 
 $(document).on("click","#Cancelar_venta", function(e){
+  $("#Tipo_pagovn").prop('disabled',false);
+  $("#Tipo_comprobantevn").prop('disabled',false);
   $.ajax({
     url:"routes/routeContent.php",
     type:"POST",
@@ -305,6 +307,9 @@ $(document).on("click","#Cancelar_venta", function(e){
 
 
 $(document).on("click","#Agregar_vn", function(e){
+
+  $("#Tipo_pagovn").prop('disabled','disabled');
+  $("#Tipo_comprobantevn").prop('disabled','disabled');
 
   var RFC =$("#RFC_vn").val();
   var Producto =$("#Producto_vn").val();
