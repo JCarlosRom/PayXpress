@@ -53,6 +53,8 @@ if ($_SESSION["user"]=="Administrador") {
 
   	<body background="LOGO.jpg">
 
+<?php $sesion=$_SESSION["user"];
+echo $sesion; ?>
 
 <div class="container">
   <nav class="navbar navbar-default">
@@ -67,7 +69,7 @@ if ($_SESSION["user"]=="Administrador") {
         </button>
         <a class="navbar-brand" href="#">TintaXpress</a>
       </div>
-      
+
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -78,7 +80,7 @@ if ($_SESSION["user"]=="Administrador") {
             <ul class="dropdown-menu">
               <li><a id="Lista_productos"><span class="glyphicon glyphicon-list-alt"></span> Lista de Productos</a></li>
               <li><a id="Servicio_tecnico"><span class="glyphicon glyphicon-wrench"></span> Servicio Tecnico</a></li>
-              <li><a id="Facturas_tickets"><span class="glyphicon glyphicon-print"></span> Imprimir Ticket </a></li>
+              <li><a  id="Facturas_tickets"><span class="glyphicon glyphicon-print"></span> Imprimir Ticket </a></li>
               <li><a id="Clientes"><span class="glyphicon glyphicon-user"></span> Clientes </a></li>
              <li><a  id="Historial_ventas"><span class="glyphicon glyphicon-th-list"></span> Historial de ventas </a></li>
             </ul>

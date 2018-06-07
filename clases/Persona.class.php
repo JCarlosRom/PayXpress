@@ -182,7 +182,7 @@
 
 		public function Get_client($info){
 
-			$Consulta="select IdCliente, Nombre, concat('Calle ',Calle,' #',NoExterior,' Colonia',Colonia), RFC
+			$Consulta="select IdCliente, concat(Nombre,' ',PrimerApellido,' ',SegundoApellido), concat('Calle ',Calle,' #',NoExterior,' Colonia',Colonia), RFC
 			,Telefono, Correo from cliente where RFC like '%{$info}%'";
 
 
@@ -267,6 +267,22 @@
 
 
 		}
+
+		public function Temporal_venta(){
+
+			$Consulta7="Select * from venta v inner join Empleado e where v.IdEmpleado=e.IdEmpleado";
+
+			return $this->query_row($Consulta7);
+		}
+
+		// public function usuario(){
+
+			// $sesion=$_SESSION["user"];
+			// echo $sesion;
+
+		// 	$Consulta8="Select Sucursal from Empleado where Empleado=$sesion";
+		// }
+
 
 		}
 

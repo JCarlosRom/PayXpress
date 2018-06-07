@@ -6,15 +6,30 @@ $pdf = new FPDF();
 $pdf->AddPage();
 $pdf->SetFont('Arial', 'B', 20);
 
+$pdf->Cell(0, 0,'TINTAXPRESS', 0, 1,"C", False);
+$pdf->SetFont('Arial','B',9);
+$pdf->Ln(5);
+$pdf->Cell(0, 0,utf8_decode('LA SOLUCION A TU IMPRESIÓN'), 0, 1,"C", False);
+$pdf->Ln(5);
+$pdf->Cell(0,0,utf8_decode('Dirección: Calle Ignacio Sandoval
+  No. 750 Lomas de Circunvalación, Colima, Colima'),0,1,"C", False);
+$pdf->Ln(5);
+$pdf->Cell(0,0,'C.P. 28010, Telefono: (312)
+    313 - 7366',0,1,"C", False);
+    $pdf->Ln(5);
+$pdf->Cell(0,0,'Jesus Tadeo Natera Gonzalez',0,1,"C", False);
+$pdf->Ln(4);
+$pdf->Cell(0,0,'RFC: NAGJ8110227E7',0,1,"C", False);
+$pdf->Ln(5);
+$pdf->Cell(0,0,'Nota de Venta',0,1,"C", False);
+$pdf->Ln(4);
 
-$pdf->Cell(190, 10, 'REGISTRO PARA BASE',0,1,'C');
-$pdf->SetFont('Arial', '', 9);
 $pdf->Cell(190, 10, 'Fecha: '.date('d-m-Y').'', 0,0,'C');
 $pdf->Ln(15);
 $pdf->SetFont('Arial', 'B', 11);
 $pdf->Cell(70, 8, '', 0);
-$pdf->Cell(100, 8, 'LISTADO DE REGISTROS', 0);
-$pdf->Ln(23);
+// $pdf->Cell(100, 8, 'LISTADO DE REGISTROS', 0);
+$pdf->Ln(18);
 $pdf->SetFont('Arial', 'B', 8);
 
 $pdf->Cell(30, 8, 'RFC', 1);
@@ -49,11 +64,24 @@ for ($i=0; $i <count($data) ; $i++) {
 }
 
 
+$pdf->Cell(30,8,"");
+$pdf->Cell(40,8,"");
+$pdf->Cell(25,8,"");
+$pdf->Cell(25,8,"");
 $pdf->Cell(30,8,"Total: ",1);
-$pdf->Cell(40,8,$Total,1);
+$pdf->Cell(30,8,"$".$Total,1);
 
 $pdf->SetFont('Arial', 'B', 8);
 $pdf->Cell(114,8,'',0);
+$pdf->Ln(5);
+$pdf->Ln(5);
+$pdf->Ln(5);
+$pdf->Ln(5);
+$pdf->Ln(5);
+$pdf->Ln(5);
+$pdf->Image('LOGO0.jpg' , 88 ,230, 35 , 38,'JPG');
+$pdf->Ln(150);
+$pdf->Cell(0, 0,'GRACIAS POR SU COMPRA', 0, 1,"C", False);
 
 $pdf->Output('D',"Ticket.pdf",true);
 
