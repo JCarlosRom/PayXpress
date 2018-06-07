@@ -34,7 +34,7 @@ $Content= new Persona();
 
 $data=($Content->Temporal_open());
 
-$Total=0;
+$Total=0;  
 
 for ($i=0; $i <count($data) ; $i++) {
 
