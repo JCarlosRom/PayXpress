@@ -199,7 +199,7 @@ $(document).on("click","#Registrar_cliente_end",function(e){
     success:function(data){
 
             if(data === true){
-              toast1("El registro se pudo llevar a cabo de forma correcta","Agregado correctamente",8000,"success");
+              toast1("El registro no se pudo llevar a cabo de forma correcta","Agregado correctamente",8000,"error");
 
             }else {
                 toast1("error", "Registro Incorrecto",8000,"error");
@@ -326,6 +326,8 @@ $(document).on("click","#Agregar_vn", function(e){
   var data={RFC:RFC, Producto:Producto, Cantidad:Cantidad, Tipo_pago:Tipo_pago,
   Tipo_comprobante};
 
+
+// TABLA TEMPORAL DE VENTA
   $.ajax({
     url:"routes/routeContent.php",
     type:"POST",
@@ -339,7 +341,7 @@ $(document).on("click","#Agregar_vn", function(e){
     },
     success:function(data){
       if (data!="") {
-        var headers =["Id","RFC","PRODUCTO","CANTIDAD","TIPO DE PAGO","TIPO DE COMPROBANTE","TOTAL","Eliminar"];
+        var headers =["Id","RFC","PRODUCTO","CANTIDAD","TIPO DE PAGO","TIPO DE COMPROBANTE","TOTAL"];
         jQueryTableagregar("tableContainer", headers,data, 4, "450 px", "Image")
 
         $("#Producto_vn").val("");
@@ -530,7 +532,7 @@ $(document).on("click", "#Agregar_cliente", function(e){
 $(document).on("click", "#Historial_ventas", function(e){
  e.preventDefault();
 
- $("#Historial_ventas_modal").modal("show");
+ $("#Historial_ventas_modal").modal("hide");
 
 
 });
@@ -543,6 +545,21 @@ $(document).on("click", "#Cerrar_sesion", function(e){
  e.preventDefault();
 
 location.href="php/logout.php";
+
+
+});
+
+
+$(document).on("click", "#Facturas_tickets", function(e){
+  e.preventDefault();
+  location.href="/PX/musica/examples/index1.html";
+
+
+});
+
+$(document).on("click", "#Historial_ventas", function(e){
+  e.preventDefault();
+  location.href="pdf_reporte.php";
 
 
 });

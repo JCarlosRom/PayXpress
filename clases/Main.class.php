@@ -46,28 +46,28 @@
 			$mailFrom = 'pruebas.de.correo.angel@gmail.com';
 
 			require("../plugins/PHPMailer-maste/PHPMailerAutoload.php");
-			
+
 			$mail = new PHPMailer();
 
 		    $mail->SetLanguage( 'es', '../PHPMailer-maste/includes/language/' );
-		                    
-		    $mail->From     = $mailFrom;    // Correo Electronico para SMTP 
-		    $mail->FromName = 'Cotizador'; 
+
+		    $mail->From     = $mailFrom;    // Correo Electronico para SMTP
+		    $mail->FromName = 'Cotizador';
 		    $mail->AddAddress($mailTo); // Dirección a la que llegaran los mensajes
 
 		    if($bcc != "")
 		    	$mail->AddBCC($bcc); // copia oculta
 
-		    $mail->WordWrap = 50; 
-		    $mail->IsHTML(true);     
+		    $mail->WordWrap = 50;
+		    $mail->IsHTML(true);
 		    $mail->Subject  =  utf8_decode($subject);
 		    $mail->Body     =  $msg;
 
-			$mail->IsSMTP(); 
-		    $mail->Host = "smtp.gmail.com";  // mail. o solo dominio - Servidor de 
+			$mail->IsSMTP();
+		    $mail->Host = "smtp.gmail.com";  // mail. o solo dominio - Servidor de
 		    $mail->Port = 587;
     		$mail->SMTPSecure = 'tls';
-		    $mail->SMTPAuth = true; 
+		    $mail->SMTPAuth = true;
 		    $mail->Username = $mailFrom;  // Correo Electrónico para SMTP correo@dominio
 		    $mail->Password = "pruebasdecorreo"; // Contraseña para SMTP
 
@@ -88,26 +88,26 @@
 			$mailFrom = 'angeltorres@tecnologiascositec.com';
 
 			require("../plugins/PHPMailer-maste/PHPMailerAutoload.php");
-			
+
 			$mail = new PHPMailer();
 
 		    $mail->SetLanguage( 'es', '../PHPMailer-maste/includes/language/' );
-		                    
-		    $mail->From     = $mailFrom;    // Correo Electronico para SMTP 
-		    $mail->FromName = 'Cotizador'; 
+
+		    $mail->From     = $mailFrom;    // Correo Electronico para SMTP
+		    $mail->FromName = 'Cotizador';
 		    $mail->AddAddress($mailTo); // Dirección a la que llegaran los mensajes
-		    
+
 		    if($bcc != "")
 		    	$mail->AddBCC($bcc); // copia oculta
 
-		    $mail->WordWrap = 50; 
-		    $mail->IsHTML(true);     
+		    $mail->WordWrap = 50;
+		    $mail->IsHTML(true);
 		    $mail->Subject  =  utf8_decode($subject);
 		    $mail->Body     =  $msg;
 
-			$mail->IsSMTP(); 
-		    $mail->Host = "tecnologiascositec.com";  // mail. o solo dominio - Servidor de 
-		    $mail->SMTPAuth = true; 
+			$mail->IsSMTP();
+		    $mail->Host = "tecnologiascositec.com";  // mail. o solo dominio - Servidor de
+		    $mail->SMTPAuth = true;
 		    $mail->Username = $mailFrom;  // Correo Electrónico para SMTP correo@dominio
 		    $mail->Password = "Thekamitorres!"; // Contraseña para SMTP
 
@@ -119,8 +119,8 @@
 
 		}
 
-		
+
 
 	}
-	
+
 ?>

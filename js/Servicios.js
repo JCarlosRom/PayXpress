@@ -118,6 +118,7 @@ $(document).on("click","#Agregar_servicio_end", function(e){
     },success:function(data){
       if (data==true) {
         LoadServices();
+          $("#modal_agregar_servicio").modal("hide");
       }else{
 
         }

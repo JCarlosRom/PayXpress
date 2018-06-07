@@ -19,14 +19,14 @@
       <br>
       <div class="row">
         <div class="col-md-4">
-          <input type="text" name="" value="" class="form-control" id="Search_producto">
+          <input type="text" name="" value="" class="form-control" id="Search_producto"placeholder="Buscar producto...">
         </div>
         <div class="col-md-1">
           <button type="button" name="button" class="btn btn-success" id="Agregar_producto"> <span class="glyphicon glyphicon-plus-sign"></span> Agregar</button>
 
         </div>
         <div class="col-md-1">
-          <button type="button" name="button" class="btn btn-primary" id="Actualizar_producto"> <span class="glyphicon glyphicon-pencil"></span> Actualizar</button>
+          <button type="button" name="button" style="margin-right: 18px;padding-right: 15px;margin-left: 25px;" class="btn btn-primary" id="Actualizar_producto"> <span class="glyphicon glyphicon-pencil"></span> Actualizar</button>
 
         </div>
 

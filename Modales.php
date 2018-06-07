@@ -15,7 +15,7 @@
             <label for="Id">RFC Cliente</label>
         </div>
         <div class="col-md-2">
-          <input class="form-control" id="RFC_vn">
+          <input class="form-control "  id="RFC_vn">
         </div>
       </div>
         <br>
@@ -74,7 +74,7 @@
 		</div>
     </div>
     <div class="modal-footer">
-      <button type="button" name="button" class="btn btn-danger" id="Cancelar_venta">Cancelar venta</button>
+      <button type="button" name="button" class="btn btn-danger" id="Cancelar_venta">Limpiar venta venta</button>
       <button type="button" class="btn btn-success" id="Agregar_vn"><span class="glyphicon glyphicon-plus-sign"></span> Agregar a la venta</button>
       <button type="button" class="btn btn-primary" id="Realizar_venta">Continuar</button>
     </div>
@@ -349,7 +349,7 @@
     </div>
     </div>
     <div class="modal-footer">
-      <button type="button" class="btn btn-primary" id="Actualizar_cliente"><span class="glyphicon glyphicon-refresh"></span>Actualizar</button>
+      <!-- <button type="button" class="btn btn-primary" id="Actualizar_cliente"><span class="glyphicon glyphicon-refresh"></span>Actualizar</button> -->
 
 
     </div>
@@ -496,7 +496,7 @@
         <label class="form-group">Correo</label><br>
         <input class="form-control" id="Correo">
         <label class="form-group">Contraseña </label><br>
-        <input class="form-control"  id="Contraseña" >
+        <input class="form-control" type="password" id="Contraseña" >
         <label class="form-group">Sucursal </label><br>
         <input class="form-control"  id="Sucursal" >
       </form>
